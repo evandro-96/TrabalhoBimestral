@@ -1,17 +1,24 @@
 package br.univel;
 
+import br.univel.anotacoes.Coluna;
 import br.univel.anotacoes.Tabela;
-import br.univel.enums.EstadoCivil;
 
 @Tabela("CAD_CLIENTE")
 public class Cliente {
 	
+	@Coluna(pk=true, nome="CLID")
 	private int id;
+	
+	@Coluna(nome="CLNOME")
 	private String nome;
+	
+	@Coluna(nome="CLEND")
 	private String endereco;
+	
+	@Coluna(nome="CLTEL")
 	private String telefone;
 	
-	EstadoCivil estadoCivil = br.univel.enums.EstadoCivil.CASADO;
+
 	
 	public int getId() {
 		return id;

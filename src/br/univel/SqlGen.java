@@ -1,3 +1,5 @@
+package br.univel;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 

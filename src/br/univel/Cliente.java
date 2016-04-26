@@ -2,23 +2,25 @@ package br.univel;
 
 import br.univel.anotacoes.Coluna;
 import br.univel.anotacoes.Tabela;
+import br.univel.enums.EstadoCivil;
 
-@Tabela("CAD_CLIENTE")
+@Tabela("clientes")
 public class Cliente {
-	
-	@Coluna(pk=true, nome="CLID")
+
+	@Coluna(nome="cli_codigo", pk=true)
 	private int id;
 	
-	@Coluna(nome="CLNOME")
+	@Coluna(nome="cli_nome", tamanho=60)
 	private String nome;
 	
-	@Coluna(nome="CLEND")
+	@Coluna(nome="cli_endereco", tamanho=60)
 	private String endereco;
 	
-	@Coluna(nome="CLTEL")
+	@Coluna(nome="cli_fone", tamanho=20)
 	private String telefone;
 	
-
+	@Coluna(nome="cli_estcivil")
+	private EstadoCivil estadoCivil;
 	
 	public int getId() {
 		return id;
@@ -44,6 +46,14 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+	public EstadoCivil getEstadoCivil() {
+		return estadoCivil;
+	}
+	public void setEstadoCivil(EstadoCivil estadoCivil) {
+		this.estadoCivil = estadoCivil;
+	}
 	
-
+	public Cliente(){
+		
+	}
 }

@@ -20,15 +20,12 @@ public class Main {
 		c2.setNome("Tonho");
 		c2.setTelefone("989898989");
 		c2.setEstadoCivil(EstadoCivil.SOLTEIRO);
-		c2.setEndereco("Rua asa");
+		c2.setEndereco("Rua asa dourada");
 		
 		Conexao conexao = new Conexao();
-		
-		
-		//instancia Dao
+			
 		DaoImpl d = new DaoImpl();
 		
-		//seta conexão
 		try {
 			d.setCon(conexao.abrirConexao());
 		} catch (SQLException e) {
@@ -74,8 +71,6 @@ public class Main {
 							   c.getTelefone() + " - " + c.getEstadoCivil().toString());			
 		}
 		
-		
-		//fecha a conexão
 		d.setCon(null);
 		try {
 			conexao.fecharConexao();

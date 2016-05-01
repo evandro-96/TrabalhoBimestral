@@ -24,7 +24,7 @@ public class Main {
 		
 		Conexao conexao = new Conexao();
 			
-		DaoImpl d = new DaoImpl();
+		Impl d = new Impl();
 		
 		try {
 			d.setCon(conexao.abrirConexao());

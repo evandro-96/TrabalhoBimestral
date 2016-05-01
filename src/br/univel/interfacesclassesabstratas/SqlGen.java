@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 
 public abstract class SqlGen {
 	
-	protected abstract String getCreateTable(Object obj);
+	protected abstract String getCreateTable(Connection con, Object obj);
 	
-	protected abstract String getDropTable(Object obj);
+	protected abstract String getDropTable(Connection con, Object obj);
 	
 	protected abstract PreparedStatement getSqlInsert(Connection con, Object obj);
 	protected abstract PreparedStatement getSqlSelectAll(Connection con, Object obj);

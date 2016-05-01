@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.univel.enums.EstadoCivil;
-import br.univel.interfaceseclassesabstratas.Dao;
+import br.univel.interfacesclassesabstratas.Acoes;
 
-public class DaoImpl implements Dao<Cliente, Integer> {
+public class Impl implements Acoes<Cliente, Integer> {
 
 
 	private Connection con = null;
@@ -26,7 +26,7 @@ public class DaoImpl implements Dao<Cliente, Integer> {
 
 	@Override
 	public void salvar(Cliente t) {
-		SqlGenImpl gerador = new SqlGenImpl();
+		SqlImpl gerador = new SqlImpl();
 		
 		try {
 
@@ -46,7 +46,7 @@ public class DaoImpl implements Dao<Cliente, Integer> {
 	}
 	@Override
 	public Cliente buscar(Integer k) {
-		SqlGenImpl gerador = new SqlGenImpl();
+		SqlImpl gerador = new SqlImpl();
 		Cliente c = new Cliente();
 				
 		try {
@@ -75,7 +75,7 @@ public class DaoImpl implements Dao<Cliente, Integer> {
 
 	@Override
 	public void atualizar(Cliente t) {
-		SqlGenImpl gerador = new SqlGenImpl();
+		SqlImpl gerador = new SqlImpl();
 			
 		try {
 
@@ -97,7 +97,7 @@ public class DaoImpl implements Dao<Cliente, Integer> {
 
 	@Override
 	public void excluir(Integer k) {
-		SqlGenImpl gerador = new SqlGenImpl();
+		SqlImpl gerador = new SqlImpl();
 				
 		try {
 
@@ -114,7 +114,7 @@ public class DaoImpl implements Dao<Cliente, Integer> {
 
 	@Override
 	public List<Cliente> listarTodos() {
-		SqlGenImpl gerador = new SqlGenImpl();
+		SqlImpl gerador = new SqlImpl();
 		List<Cliente> listaCliente = new ArrayList<Cliente>();
 		
 		try {
@@ -145,7 +145,7 @@ public class DaoImpl implements Dao<Cliente, Integer> {
 	}
 
 	public void criarTabela(Cliente t){
-		SqlGenImpl gerador = new SqlGenImpl();
+		SqlImpl gerador = new SqlImpl();
 		
 		try {
 			String sql = gerador.getCreateTable(con, t);	
@@ -161,7 +161,7 @@ public class DaoImpl implements Dao<Cliente, Integer> {
 	}
 	
 	public void apagarTabela(Cliente t){
-		SqlGenImpl gerador = new SqlGenImpl();
+		SqlImpl gerador = new SqlImpl();
 				
 		try {
 			String sql = gerador.getDropTable(con, t);	

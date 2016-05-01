@@ -5,8 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import javax.management.RuntimeErrorException;
-
 import br.univel.anotacoes.Coluna;
 import br.univel.anotacoes.Tabela;
 import br.univel.enums.EstadoCivil;
@@ -21,8 +19,7 @@ public class SqlImpl extends SqlGen {
 		try {
 
 			StringBuilder sb = new StringBuilder();
-
-			// Declaração da tabela.	
+	
 			String nomeTabela;
 			if (obj.getClass().isAnnotationPresent(Tabela.class)) {
 
@@ -40,7 +37,6 @@ public class SqlImpl extends SqlGen {
 			
 			String ChavePrimaria = "";
 
-			// Declaração das colunas
 			for (int i = 0; i < atributos.length; i++) {
 
 				Field field = atributos[i];
@@ -49,7 +45,6 @@ public class SqlImpl extends SqlGen {
 				String tipoColuna;
 				int    tamanhoColuna = 0;
 
-				//nome coluna
 				if (field.isAnnotationPresent(Coluna.class)) {
 					Coluna anotacaoColuna = field.getAnnotation(Coluna.class);
 
@@ -141,8 +136,6 @@ public class SqlImpl extends SqlGen {
 		StringBuilder sb = new StringBuilder();
 		PreparedStatement ps = null;
 
-
-		//nome da tabela
 		String nomeTabela;
 		if (cl.isAnnotationPresent(Tabela.class)) {
 			Tabela anotacaoTabela = cl.getAnnotation(Tabela.class);
@@ -155,7 +148,6 @@ public class SqlImpl extends SqlGen {
 
 		Field[] atributos = cl.getDeclaredFields();
 
-		// nome dos campos
 		for (int i = 0; i < atributos.length; i++) {
 
 			Field field = atributos[i];
@@ -210,7 +202,6 @@ public class SqlImpl extends SqlGen {
 		try{
 			StringBuilder sb = new StringBuilder();			
 			
-			// Declaração da tabela.
 			String nomeTabela;
 			if (obj.getClass().isAnnotationPresent(Tabela.class)) {
 	
@@ -338,8 +329,6 @@ public class SqlImpl extends SqlGen {
 				nomeColuna = field.getName().toUpperCase();
 			}
 
-
-			//se for chave primária não escreve no update
 			if (nomeColuna != chavePrimaria){				
 				sb.append("  ").append(nomeColuna).append(" = ?");
 				
@@ -368,7 +357,6 @@ public class SqlImpl extends SqlGen {
 		try{
 			StringBuilder sb = new StringBuilder();
 			
-			// Declaração da tabela.
 			String nomeTabela;
 			if (obj.getClass().isAnnotationPresent(Tabela.class)) {
 	
@@ -380,18 +368,15 @@ public class SqlImpl extends SqlGen {
 			}
 			
 			
-			//pega o campo id
 			Field[] atributos = obj.getClass().getDeclaredFields();			
 			String ChavePrimaria = "";
 			for (int i = 0; i < atributos.length; i++) {
 
 				Field field = atributos[i];
 
-				//nome coluna
 				if (field.isAnnotationPresent(Coluna.class)) {
 					Coluna anotacaoColuna = field.getAnnotation(Coluna.class);
 					
-					//verifica se é chave primária
 					if(anotacaoColuna.pk()){
 						if (ChavePrimaria.equalsIgnoreCase("")){
 							ChavePrimaria = anotacaoColuna.nome();

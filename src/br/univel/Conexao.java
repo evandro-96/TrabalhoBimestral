@@ -14,13 +14,6 @@ public class Conexao {
 		String user = "sa";
 		String pass = "sa";
 		
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		con = DriverManager.getConnection(url, user, pass);
 	
 		return con;

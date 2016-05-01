@@ -7,7 +7,7 @@ import br.univel.enums.EstadoCivil;
 public class Main {
 
 	public Main(){
-		//instancia dos clientes
+		
 		Cliente c1 = new Cliente();
 		c1.setId(1);
 		c1.setNome("Evandro");
@@ -33,18 +33,16 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		
-		//chamar métodos
-		System.out.println("apagarTabela\n");
+		System.out.println("Apagar Tabela\n");
 		d.apagarTabela(c1);
 		
-		System.out.println("criarTabela\n");
+		System.out.println("Criar Tabela\n");
 		d.criarTabela(c1);
 		
-		System.out.println("inserir objeto 1\n");
+		System.out.println("Inserir objeto 1\n");
 		d.salvar(c1);
 		
-		System.out.println("inserir objeto 2\n");
+		System.out.println("Inserir objeto 2\n");
 		d.salvar(c2);
 		
 		System.out.println("listarTodos");

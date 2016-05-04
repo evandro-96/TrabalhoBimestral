@@ -11,16 +11,13 @@ public class Main {
 	public Main(){
 		
 		Cliente c1 = new Cliente();
-		c1.setId(1);
-		c1.setNome("Evandro");
-		c1.setTelefone("999999");
+		c1.setId(1);c1.setNome("Evandro");c1.setTelefone("999999");
 		c1.setEstadoCivil(EstadoCivil.SOLTEIRO);
 		c1.setEndereco("Rua Joel Sanways");
 		
 		Cliente c2 = new Cliente();
 		c2.setId(2);
-		c2.setNome("Tonho");
-		c2.setTelefone("989898");
+		c2.setNome("Tonho");c2.setTelefone("989898");
 		c2.setEstadoCivil(EstadoCivil.SOLTEIRO);
 		c2.setEndereco("Rua asa dourada");
 		

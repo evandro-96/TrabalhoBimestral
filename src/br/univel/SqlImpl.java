@@ -55,7 +55,6 @@ public class SqlImpl extends SqlGen {
 						nomeColuna = anotacaoColuna.nome();
 						tamanhoColuna = anotacaoColuna.tamanho();
 						
-						//verifica se é chave primária
 						if(anotacaoColuna.pk()){
 							if (ChavePrimaria.equalsIgnoreCase("")){
 								ChavePrimaria = anotacaoColuna.nome();
@@ -70,7 +69,6 @@ public class SqlImpl extends SqlGen {
 					nomeColuna = field.getName().toUpperCase();
 				}
 
-				//tipo coluna
 				Class<?> tipoParametro = field.getType();
 
 				if (tipoParametro.equals(String.class)) {
@@ -110,7 +108,6 @@ public class SqlImpl extends SqlGen {
 
 			StringBuilder sb = new StringBuilder();
 			
-			// Declaração da tabela.
 			String nomeTabela;
 			if (obj.getClass().isAnnotationPresent(Tabela.class)) {
 
@@ -235,7 +232,6 @@ public class SqlImpl extends SqlGen {
 		try{
 			StringBuilder sb = new StringBuilder();
 			
-			// Declaração da tabela.
 			String nomeTabela;
 			if (obj.getClass().isAnnotationPresent(Tabela.class)) {
 	
@@ -247,18 +243,15 @@ public class SqlImpl extends SqlGen {
 	
 			}			
 
-			//pega o campo id
 			Field[] atributos = obj.getClass().getDeclaredFields();			
 			String ChavePrimaria = "";
 			for (int i = 0; i < atributos.length; i++) {
 
 				Field field = atributos[i];
 
-				//nome coluna
 				if (field.isAnnotationPresent(Coluna.class)) {
 					Coluna anotacaoColuna = field.getAnnotation(Coluna.class);
 					
-					//verifica se é chave primária
 					if(anotacaoColuna.pk()){
 						if (ChavePrimaria.equalsIgnoreCase("")){
 							ChavePrimaria = anotacaoColuna.nome();
@@ -292,7 +285,6 @@ public class SqlImpl extends SqlGen {
 		StringBuilder sb = new StringBuilder();
 		PreparedStatement ps = null;
 
-		//nome da tabela
 		String nomeTabela;
 		if (cl.isAnnotationPresent(Tabela.class)) {
 			Tabela anotacaoTabela = cl.getAnnotation(Tabela.class);
@@ -306,7 +298,6 @@ public class SqlImpl extends SqlGen {
 		Field[] atributos = cl.getDeclaredFields();
 		String chavePrimaria = "";
 
-		// nome dos campos
 		for (int i = 0; i < atributos.length; i++) {
 
 			Field field = atributos[i];
